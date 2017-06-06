@@ -16,6 +16,20 @@
             bottom: 0;
         }
         
+        #infobox {
+            position: absolute;
+            z-index: 650;
+            bottom: 25px;
+            right: 10px;
+            padding: 8px 15px;
+            margin: 0;
+            color: whitesmoke;
+            background: rgba(39, 56, 241, 0.8);
+            font-size: 0.8em;
+            border-radius: 5px;
+            font-family: 'Slabo 27px', serif;
+        }
+        
         h1 {
             position: absolute;
             z-index: 650;
@@ -48,6 +62,7 @@
 
 <body>
     <div id="map"></div>
+    <div id="infobox">Test</div>
     <h1>Ultimate Field Map</h1>
     <h2>USA Ultimate College Championships 2017</h2>
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
