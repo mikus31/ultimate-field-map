@@ -55,12 +55,11 @@
     <script>
         // script goes here!
         var options = {
-                center: [39.365952, -84.301555]
-                , zoom: 17
-                , maxZoom: 20
-                , minZoom: 17
-            }
-            // var map = L.map('map').setView([39.365952, -84.301555], 17);
+            center: [39.365952, -84.301555]
+            , zoom: 17
+            , maxZoom: 20
+            , minZoom: 17
+        }
         var map = L.map('map', options);
         var tiles = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href = "https://carto.com/attribution"> CARTO </a>'
