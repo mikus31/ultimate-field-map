@@ -98,10 +98,18 @@
         });
 
         function drawMap(data) {
-            console.log(data);
+            // console.log(data);
             var dataLayer = L.geoJson(data, {
+                // code goes here to convert geojson coords to latlngs
+                /*var coords = [];
+                onEachFeature: function (feature) {
+                    coords.push(feature.geometry.coordinates);
+                }, coordstoLatLng: function (coords) {
+                    return new L.dataLayer(coords);
+                }, */
                 style: function (feature) {
-                    console.log(feature);
+                    // console.log(feature.geometry.coordinates);
+                    // console.log(feature);
                     return {
                         color: '#dddddd'
                         , weight: 2
