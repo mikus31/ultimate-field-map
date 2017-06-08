@@ -80,8 +80,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script>
         // script goes here!
-        var southWest = L.latLng(39.363292, -84.304525);
-        var northEast = L.latLng(39.369212, -84.297728);
+        var southWest = L.latLng(39.361307, -84.308877);
+        var northEast = L.latLng(39.370116, -84.293513);
         var options = {
             scrollWheelZoom: true
             , zoom: 17
@@ -121,14 +121,13 @@
                 // console.log(props);
                 // console.log(props.FIELD_NUM);
                 var mensDiv = props.M1;
-                var womensDiv = props.W1;
-                // console.log(womensDiv);
-                console.log(mensDiv);
-                var fieldNum = props.FIELD_NUM;
-                layer.bindTooltip(mensDiv, {
-                    permanent: true
-                    , opacity: 1
-                }).openTooltip();
+                if (mensDiv != null) {
+                    // console.log(mensDiv);
+                    layer.bindTooltip(mensDiv, {
+                        permanent: true
+                        , opacity: 1
+                    }).openTooltip();
+                }
             });
         }
 
