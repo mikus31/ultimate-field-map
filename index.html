@@ -24,7 +24,7 @@
             padding: 4px 8px;
             margin: 0;
             color: whitesmoke;
-            background: rgba(44, 44, 47, 0.8);
+            background: rgba(44, 44, 47, 0.9);
             font-size: 0.8em;
             border-radius: 5px;
             font-family: 'Slabo 27px', serif;
@@ -34,12 +34,12 @@
         #legend {
             position: absolute;
             z-index: 650;
-            bottom: 300px;
+            bottom: 200px;
             right: 10px;
             padding: 4px 8px;
             margin: 0;
             color: whitesmoke;
-            background: rgba(44, 44, 47, 0.8);
+            background: rgba(44, 44, 47, 0.9);
             font-size: 0.8em;
             border-radius: 5px;
             font-family: 'Slabo 27px', serif;
@@ -54,7 +54,7 @@
             padding: 8px 15px;
             margin: 0;
             color: whitesmoke;
-            background: rgba(44, 44, 47, 0.8);
+            background: rgba(44, 44, 47, 0.9);
             font-size: 2.5em;
             border-radius: 5px;
             font-family: 'Slabo 27px', serif;
@@ -68,7 +68,7 @@
             padding: 8px 15px;
             margin: 0;
             color: whitesmoke;
-            background: rgba(44, 44, 47, 0.8);
+            background: rgba(44, 44, 47, 0.9);
             font-size: 1.1em;
             border-radius: 5px;
             font-family: 'Slabo 27px', serif;
@@ -88,7 +88,7 @@
         
         .womensTooltip {
             background: #f5deb3;
-            font-size: 1em;
+            font-size: 1.1em;
             font-weight: bold;
             font-family: 'Slabo 27px', serif;
         }
@@ -98,11 +98,12 @@
 <body>
     <div id="map"></div>
     <div id="legend">
-        <h3>LEGEND</h3> </div>
+        <p><img src=images/women-legend.png alt="Women" width="100" height="30"></p>
+        <p><img src=images/men-legend.png alt="Women" width="100" height="30"></p>
+    </div>
     <div id="infobox">
         <h3>About This Map</h3>
         <p>Field layout and round-by-round matchups for the USA Ultimate College Championships at Heritage Oak Park in Mason, Ohio.</p>
-        <p>Women's games are labeled in Wheat, men's games are labeled in Majorelle Blue.</p>
         <p>Data Source: <a href="http://www.usaultimate.org/index.html">USA Ultimate</a>
             <br> Map Created By: <a href="https://mikus31.github.io/">Michael McNeil</a> for <a href="https://twitter.com/bamasecs?lang=en">Bama Secs</a></p>
     </div>
@@ -152,11 +153,14 @@
                 var props = layer.feature.properties;
                 // console.log(props);
                 // console.log(props.FIELD_NUM);
+                var fieldNum = props.FIELD_NUM;
                 var mensDiv = props.M1;
                 var womensDiv = props.W1;
+                var fieldLabelM = fieldNum + ": " + mensDiv;
+                var fieldLabelW = fieldNum + ": " + womensDiv;
                 if (mensDiv != null) {
-                    console.log(mensDiv);
-                    layer.bindTooltip(mensDiv, {
+                    // console.log(mensDiv);
+                    layer.bindTooltip(fieldLabelM, {
                         className: "mensTooltip"
                         , direction: "top"
                         , permanent: true
@@ -164,8 +168,8 @@
                     }).openTooltip();
                 }
                 else if (womensDiv != null) {
-                    console.log(womensDiv);
-                    layer.bindTooltip(womensDiv, {
+                    // console.log(womensDiv);
+                    layer.bindTooltip(fieldLabelW, {
                         className: "womensTooltip"
                         , direction: "top"
                         , permanent: true
@@ -173,10 +177,6 @@
                     }).openTooltip();
                 }
             });
-        }
-
-        function updateMap() {
-            // code goes here
         }
     </script>
 </body>
