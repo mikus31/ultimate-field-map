@@ -137,7 +137,7 @@
             <br> Map Created By: <a href="https://mikus31.github.io/">Michael McNeil</a> for <a href="https://twitter.com/bamasecs?lang=en">Bama Secs</a></p>
     </div>
     <div id="ui-controls">
-        <label><span class="min">1</span><span class="max">5</span>
+        <label><span class="min">ROUND 1</span><span class="max">ROUND 5</span>
             <input type="range" min="1" , max="5" , value="1" , step="1" , class="round-slider"> </label>
     </div>
     <h1>Ultimate Field Map</h1>
@@ -179,6 +179,7 @@
             }).addTo(map);
             map.fitBounds(dataLayer.getBounds());
             addLabel(dataLayer);
+            createSliderUI(dataLayer);
         }
 
         function addLabel(dataLayer) {
@@ -210,6 +211,19 @@
                     }).openTooltip();
                 }
             });
+        }
+
+        function createSliderUI(dataLayer) {
+            var sliderControl = L.control({
+                position: 'bottomleft'
+            });
+            sliderControl.onAdd = function (map) {
+                var slider = L.DomUtil.get("ui-controls");
+                L.DomEvent.disableScrollPropagation(slider);
+                L.DomEvent.disableClickPropagation(slider);
+                return slider;
+            }
+            sliderControl.addTo(map);
         }
     </script>
 </body>
