@@ -112,17 +112,17 @@
                     };
                 }
             }).addTo(map);
+            addLabel(dataLayer);
+        }
+
+        function addLabel(dataLayer) {
             dataLayer.eachLayer(function (layer) {
                 var props = layer.feature.properties;
                 // console.log(props);
-                console.log(props.FIELD_NUM);
-                var labelInfo = props.FIELD_NUM;
-                layer.bindTooltip(labelInfo).openTooltip();
+                // console.log(props.FIELD_NUM);
+                var fieldNum = props.FIELD_NUM;
+                layer.bindTooltip(fieldNum).openTooltip();
             });
-        }
-
-        function addLabel() {
-            // code goes here
         }
 
         function updateMap() {
