@@ -120,9 +120,14 @@
                 var props = layer.feature.properties;
                 // console.log(props);
                 // console.log(props.FIELD_NUM);
+                var mensDiv = props.M1;
+                var womensDiv = props.W1;
+                // console.log(womensDiv);
+                console.log(mensDiv);
                 var fieldNum = props.FIELD_NUM;
-                layer.bindTooltip(fieldNum, {
+                layer.bindTooltip(mensDiv, {
                     permanent: true
+                    , opacity: 1
                 }).openTooltip();
             });
         }
