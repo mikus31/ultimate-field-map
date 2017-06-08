@@ -62,6 +62,21 @@
         a {
             color: deepskyblue;
         }
+        
+        .mensTooltip {
+            color: whitesmoke;
+            background: #6050dc;
+            font-size: 1em;
+            font-weight: bold;
+            font-family: 'Slabo 27px', serif;
+        }
+        
+        .womensTooltip {
+            background: #f5deb3;
+            font-size: 1em;
+            font-weight: bold;
+            font-family: 'Slabo 27px', serif;
+        }
     </style>
 </head>
 
@@ -70,7 +85,7 @@
     <div id="infobox">
         <h3>About This Map</h3>
         <p>Field layout and round-by-round matchups for the USA Ultimate College Championships at Heritage Oak Park in Mason, Ohio.</p>
-        <p>Women's games are labeled in white, men's games are labeled in ???.</p>
+        <p>Women's games are labeled in Wheat, men's games are labeled in Majorelle Blue.</p>
         <p>Data Source: <a href="http://www.usaultimate.org/index.html">USA Ultimate</a>
             <br> Map Created By: <a href="https://mikus31.github.io/">Michael McNeil</a> for <a href="https://twitter.com/bamasecs?lang=en">Bama Secs</a></p>
     </div>
@@ -125,7 +140,8 @@
                 if (mensDiv != null) {
                     console.log(mensDiv);
                     layer.bindTooltip(mensDiv, {
-                        direction: "top"
+                        className: "mensTooltip"
+                        , direction: "top"
                         , permanent: true
                         , opacity: 1
                     }).openTooltip();
@@ -133,7 +149,8 @@
                 else if (womensDiv != null) {
                     console.log(womensDiv);
                     layer.bindTooltip(womensDiv, {
-                        direction: "top"
+                        className: "womensTooltip"
+                        , direction: "top"
                         , permanent: true
                         , opacity: 1
                     }).openTooltip();
