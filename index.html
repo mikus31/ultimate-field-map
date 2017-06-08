@@ -121,7 +121,9 @@
                 // console.log(props);
                 // console.log(props.FIELD_NUM);
                 var fieldNum = props.FIELD_NUM;
-                layer.bindTooltip(fieldNum).openTooltip();
+                layer.bindTooltip(fieldNum, {
+                    permanent: true
+                }).openTooltip();
             });
         }
 
