@@ -112,6 +112,13 @@
                     };
                 }
             }).addTo(map);
+            dataLayer.eachLayer(function (layer) {
+                var props = layer.feature.properties;
+                // console.log(props);
+                console.log(props.FIELD_NUM);
+                var labelInfo = props.FIELD_NUM;
+                layer.bindTooltip(labelInfo).openTooltip();
+            });
         }
 
         function addLabel() {
