@@ -84,7 +84,6 @@
         var northEast = L.latLng(39.369212, -84.297728);
         var options = {
             scrollWheelZoom: true
-            , center: [39.365835, -84.301082]
             , zoom: 17
             , maxZoom: 18
             , minZoom: 17
@@ -112,6 +111,7 @@
                     };
                 }
             }).addTo(map);
+            map.fitBounds(dataLayer.getBounds());
             addLabel(dataLayer);
         }
 
