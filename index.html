@@ -231,7 +231,12 @@
         }
 
         function updateMap(dataLayer, currentRound) {
+            console.log(dataLayer);
             console.log(currentRound);
+            dataLayer.eachLayer(function (layer) {
+                var props = layer.feature.properties;
+                var fieldNum = props.FIELD_NUM;
+            })
         }
 
         function addLabel(dataLayer) {
