@@ -34,7 +34,7 @@
         #legend {
             position: absolute;
             z-index: 650;
-            bottom: 105px;
+            bottom: 205px;
             left: 28px;
             padding: 4px 8px;
             margin: 0;
@@ -42,7 +42,6 @@
             background: rgba(44, 44, 47, 0.9);
             font-size: 0.8em;
             border-radius: 5px;
-            font-family: 'Slabo 27px', serif;
             width: 100px;
         }
         
@@ -91,6 +90,20 @@
             font-size: 1em;
             font-weight: bold;
             font-family: 'Slabo 27px', serif;
+        }
+        
+        #radio-button {
+            position: absolute;
+            z-index: 650;
+            width: 130px;
+            padding: 8px 25px 8px 15px;
+            background: rgba(44, 44, 47, 0.9);
+            border-radius: 5px;
+            color: whitesmoke;
+            bottom: 105px;
+            left: 28px;
+            font-family: 'Slabo 27px', serif;
+            font-size: .9em;
         }
         
         #ui-controls {
@@ -154,6 +167,14 @@
         <p>Data Source: <a href="http://www.usaultimate.org/index.html">USA Ultimate</a>
             <br> Map Created By: <a href="https://mikus31.github.io/">Michael McNeil</a> for <a href="https://twitter.com/bamasecs?lang=en">Bama Secs</a></p>
     </div>
+    <div id="radio-button">
+        <label>Select Day:</label>
+        <br>
+        <input type="radio" name="day" value="Friday" checked>Friday May 26
+        <br>
+        <input type="radio" name="day" value="Saturday">Saturday May 27
+        <br>
+        <input type="submit"> </div>
     <div id="ui-controls">
         <label><span class="min">8:30a</span><span class="second">10:30a</span><span class="mid">12:30p</span><span class="fourth">2:30p</span><span class="max">4:30p</span>
             <input type="range" min="1" , max="5" , value="1" , step="1" , class="round-slider"> </label>
