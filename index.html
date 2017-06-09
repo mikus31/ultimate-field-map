@@ -231,13 +231,8 @@
         }
 
         function updateMap(dataLayer, currentRound) {
-            // console.log(dataLayer);
             console.log(currentRound);
-            // ^These are console.logging twice each when I slide the slider, and I'm not sure why?
-            dataLayer.eachLayer(function (layer) {
-                var props = layer.feature.properties;
-                var fieldNum = props.FIELD_NUM;
-            })
+            // ^This is console.logging twice when I slide the slider, and I'm not sure why?
         }
 
         function addLabel(dataLayer) {
