@@ -34,8 +34,8 @@
         #legend {
             position: absolute;
             z-index: 650;
-            bottom: 205px;
-            left: 28px;
+            bottom: 225px;
+            right: 10px;
             padding: 4px 8px;
             margin: 0;
             color: whitesmoke;
@@ -156,6 +156,7 @@
 
 <body>
     <div id="map"></div>
+    <!--wonder if there is a way to send a sample tooltip to the legend? or at least right click > save as to save an image of one of the tooltips. i couldn't figure it out so i created static image for men and women which seems to work fine. my only hang-up is the font on these legend images does not match the rest of the text on the page-->
     <div id="legend">
         <p><img src=images/women-legend.png alt="Women" width="100" height="30"></p>
         <p><img src=images/men-legend.png alt="Women" width="100" height="30"></p>
@@ -167,6 +168,7 @@
         <p>Data Source: <a href="http://www.usaultimate.org/index.html">USA Ultimate</a>
             <br> Map Created By: <a href="https://mikus31.github.io/">Michael McNeil</a> for <a href="https://twitter.com/bamasecs?lang=en">Bama Secs</a></p>
     </div>
+    <!--    investigate radio button change event in lieu of users having to click the "Submit" button; change event would automatically update the map upon selection-->
     <div id="radio-button">
         <label>Select Day:</label>
         <br>
