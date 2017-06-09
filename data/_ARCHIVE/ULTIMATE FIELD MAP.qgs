@@ -5,7 +5,7 @@
   <evaluateDefaultValues active="0"/>
   <layer-tree-group expanded="1" checked="Qt::Checked" name="">
     <customproperties/>
-    <layer-tree-layer expanded="1" checked="Qt::Checked" id="field_map20170607092414529" name="field-map OGRGeoJSON Polygon">
+    <layer-tree-layer expanded="1" checked="Qt::Checked" id="field_map_wgs20170609103822056" name="field-map-wgs OGRGeoJSON Polygon">
       <customproperties/>
     </layer-tree-layer>
     <layer-tree-layer expanded="1" checked="Qt::Checked" id="Warren20170605132116634" name="Warren">
@@ -37,8 +37,13 @@
     </destinationsrs>
     <rendermaptile>0</rendermaptile>
     <layer_coordinate_transform_info>
+      <layer_coordinate_transform destAuthId="EPSG:102008" srcAuthId="EPSG:4326" srcDatumTransform="-1" destDatumTransform="-1" layerid="field_map_wgs20170609103326940"/>
+      <layer_coordinate_transform destAuthId="EPSG:102008" srcAuthId="EPSG:4326" srcDatumTransform="-1" destDatumTransform="-1" layerid="field_map_wgs_blank20170609103628180"/>
       <layer_coordinate_transform destAuthId="EPSG:102008" srcAuthId="EPSG:102008" srcDatumTransform="-1" destDatumTransform="-1" layerid="field_map20170607092000655"/>
+      <layer_coordinate_transform destAuthId="EPSG:102008" srcAuthId="EPSG:4326" srcDatumTransform="-1" destDatumTransform="-1" layerid="field_map_wgs20170609103822056"/>
+      <layer_coordinate_transform destAuthId="EPSG:102008" srcAuthId="EPSG:4326" srcDatumTransform="-1" destDatumTransform="-1" layerid="temp_shp20170609103727524"/>
       <layer_coordinate_transform destAuthId="EPSG:102008" srcAuthId="EPSG:102008" srcDatumTransform="-1" destDatumTransform="-1" layerid="field_map20170607092111581"/>
+      <layer_coordinate_transform destAuthId="EPSG:102008" srcAuthId="EPSG:4326" srcDatumTransform="-1" destDatumTransform="-1" layerid="field_map_wgs_copy20170609103432245"/>
       <layer_coordinate_transform destAuthId="EPSG:102008" srcAuthId="EPSG:102008" srcDatumTransform="-1" destDatumTransform="-1" layerid="FIELD_NUM20170605132009866"/>
       <layer_coordinate_transform destAuthId="EPSG:102008" srcAuthId="EPSG:102008" srcDatumTransform="-1" destDatumTransform="-1" layerid="temp_shp20170607091752468"/>
       <layer_coordinate_transform destAuthId="EPSG:102008" srcAuthId="USER:100003" srcDatumTransform="-1" destDatumTransform="-1" layerid="Warren20170605132116634"/>
@@ -50,13 +55,13 @@
   <layer-tree-canvas>
     <custom-order enabled="0">
       <item>Warren20170605132116634</item>
-      <item>field_map20170607092414529</item>
+      <item>field_map_wgs20170609103822056</item>
     </custom-order>
   </layer-tree-canvas>
   <legend updateDrawingOrder="true">
-    <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="field-map OGRGeoJSON Polygon" showFeatureCount="0">
+    <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="field-map-wgs OGRGeoJSON Polygon" showFeatureCount="0">
       <filegroup open="true" hidden="false">
-        <legendlayerfile isInOverview="0" layerid="field_map20170607092414529" visible="1"/>
+        <legendlayerfile isInOverview="0" layerid="field_map_wgs20170609103822056" visible="1"/>
       </filegroup>
     </legendlayer>
     <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="Warren" showFeatureCount="0">
@@ -114,26 +119,26 @@
       <blendMode>0</blendMode>
     </maplayer>
     <maplayer simplifyAlgorithm="0" minimumScale="0" maximumScale="1e+08" simplifyDrawingHints="1" readOnly="0" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Polygon" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
-      <id>field_map20170607092414529</id>
-      <datasource>./field-map.geojson</datasource>
+      <id>field_map_wgs20170609103822056</id>
+      <datasource>../field-map-wgs.geojson</datasource>
       <keywordList>
         <value></value>
       </keywordList>
-      <layername>field-map OGRGeoJSON Polygon</layername>
+      <layername>field-map-wgs OGRGeoJSON Polygon</layername>
       <srs>
         <spatialrefsys>
-          <proj4>+proj=aea +lat_1=20 +lat_2=60 +lat_0=40 +lon_0=-96 +x_0=0 +y_0=0 +datum=NAD83 +units=m +no_defs</proj4>
-          <srsid>27131</srsid>
-          <srid>102008</srid>
-          <authid>EPSG:102008</authid>
-          <description>North_America_Albers_Equal_Area_Conic</description>
-          <projectionacronym>aea</projectionacronym>
-          <ellipsoidacronym></ellipsoidacronym>
-          <geographicflag>false</geographicflag>
+          <proj4>+proj=longlat +datum=WGS84 +no_defs</proj4>
+          <srsid>3452</srsid>
+          <srid>4326</srid>
+          <authid>EPSG:4326</authid>
+          <description>WGS 84</description>
+          <projectionacronym>longlat</projectionacronym>
+          <ellipsoidacronym>WGS84</ellipsoidacronym>
+          <geographicflag>true</geographicflag>
         </spatialrefsys>
       </srs>
       <provider encoding="UTF-8">ogr</provider>
-      <previewExpression>COALESCE( "id", '&lt;NULL>' )</previewExpression>
+      <previewExpression></previewExpression>
       <vectorjoins/>
       <layerDependencies/>
       <expressionfields/>
@@ -147,43 +152,13 @@
         <edittype widgetv2type="TextEdit" name="FIELD_NUM">
           <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
-        <edittype widgetv2type="TextEdit" name="M1">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="M2">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="M3">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="M4">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="M5">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="W1">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="W2">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="W3">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="W4">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="W5">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
       </edittypes>
       <renderer-v2 forceraster="0" symbollevels="0" type="singleSymbol" enableorderby="0">
         <symbols>
           <symbol alpha="1" clip_to_extent="1" type="fill" name="0">
             <layer pass="0" class="SimpleFill" locked="0">
               <prop k="border_width_map_unit_scale" v="0,0,0,0,0,0"/>
-              <prop k="color" v="83,158,134,255"/>
+              <prop k="color" v="207,156,94,255"/>
               <prop k="joinstyle" v="bevel"/>
               <prop k="offset" v="0,0"/>
               <prop k="offset_map_unit_scale" v="0,0,0,0,0,0"/>
@@ -230,22 +205,8 @@
       <excludeAttributesWMS/>
       <excludeAttributesWFS/>
       <attributeactions default="-1"/>
-      <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="740443987">
-        <columns>
-          <column width="-1" hidden="0" type="field" name="id"/>
-          <column width="-1" hidden="0" type="field" name="FIELD_NUM"/>
-          <column width="-1" hidden="0" type="field" name="M1"/>
-          <column width="-1" hidden="0" type="field" name="M2"/>
-          <column width="-1" hidden="0" type="field" name="M3"/>
-          <column width="-1" hidden="0" type="field" name="M4"/>
-          <column width="-1" hidden="0" type="field" name="M5"/>
-          <column width="-1" hidden="0" type="field" name="W1"/>
-          <column width="-1" hidden="0" type="field" name="W2"/>
-          <column width="-1" hidden="0" type="field" name="W3"/>
-          <column width="-1" hidden="0" type="field" name="W4"/>
-          <column width="-1" hidden="0" type="field" name="W5"/>
-          <column width="-1" hidden="1" type="actions"/>
-        </columns>
+      <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="0">
+        <columns/>
       </attributetableconfig>
       <editform></editform>
       <editforminit/>
@@ -311,25 +272,15 @@
     </Gui>
     <Digitizing>
       <DefaultSnapToleranceUnit type="int">2</DefaultSnapToleranceUnit>
-      <LayerSnappingList type="QStringList">
-        <value>field_map20170607092414529</value>
-      </LayerSnappingList>
-      <LayerSnappingEnabledList type="QStringList">
-        <value>disabled</value>
-      </LayerSnappingEnabledList>
+      <LayerSnappingList type="QStringList"/>
+      <LayerSnappingEnabledList type="QStringList"/>
       <SnappingMode type="QString">current_layer</SnappingMode>
       <AvoidIntersectionsList type="QStringList"/>
-      <LayerSnappingToleranceUnitList type="QStringList">
-        <value>2</value>
-      </LayerSnappingToleranceUnitList>
-      <LayerSnapToList type="QStringList">
-        <value>to_vertex_and_segment</value>
-      </LayerSnapToList>
+      <LayerSnappingToleranceUnitList type="QStringList"/>
+      <LayerSnapToList type="QStringList"/>
       <DefaultSnapType type="QString">off</DefaultSnapType>
       <DefaultSnapTolerance type="double">0</DefaultSnapTolerance>
-      <LayerSnappingToleranceList type="QStringList">
-        <value>0.000000</value>
-      </LayerSnappingToleranceList>
+      <LayerSnappingToleranceList type="QStringList"/>
     </Digitizing>
     <Identify>
       <disabledLayers type="QStringList"/>
