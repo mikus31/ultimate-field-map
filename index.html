@@ -96,7 +96,7 @@
         #ui-controls {
             position: absolute;
             z-index: 650;
-            width: 175px;
+            width: 250px;
             padding: 8px 25px 8px 15px;
             background: rgba(44, 44, 47, 0.9);
             border-radius: 5px;
@@ -109,9 +109,19 @@
             float: left;
         }
         
+        #ui-controls .second {
+            float: left;
+            margin-left: 25px;
+        }
+        
         #ui-controls .mid {
             float: left;
-            margin-left: 47px;
+            margin-left: 30px;
+        }
+        
+        #ui-controls .fourth {
+            float: left;
+            margin-left: 35px;
         }
         
         #ui-controls .max {
@@ -124,7 +134,7 @@
         }
         
         label {
-            font-size: 1.1em;
+            font-size: 1em;
             font-weight: bold;
             font-family: 'Slabo 27px', serif;
         }
@@ -145,7 +155,7 @@
             <br> Map Created By: <a href="https://mikus31.github.io/">Michael McNeil</a> for <a href="https://twitter.com/bamasecs?lang=en">Bama Secs</a></p>
     </div>
     <div id="ui-controls">
-        <label><span class="min">8:30a</span><span class="mid">12:30p</span><span class="max">4:30p</span>
+        <label><span class="min">8:30a</span><span class="second">10:30a</span><span class="mid">12:30p</span><span class="fourth">2:30p</span><span class="max">4:30p</span>
             <input type="range" min="1" , max="5" , value="1" , step="1" , class="round-slider"> </label>
     </div>
     <h1>Ultimate Field Map</h1>
