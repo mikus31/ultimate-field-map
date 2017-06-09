@@ -223,6 +223,7 @@
             map.fitBounds(dataLayer.getBounds());
             addLabel(dataLayer);
             createSliderUI(dataLayer);
+            updateMap(dataLayer, 1);
             // slider update code goes here
             $(".round-slider").on('input change', function () {
                 var currentRound = $(this).val();
