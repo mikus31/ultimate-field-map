@@ -224,15 +224,16 @@
             addLabel(dataLayer);
             createSliderUI(dataLayer);
             // slider update code goes here
-            $(".round-slider").on("input change", function () {
+            $(".round-slider").on('input change', function () {
                 var currentRound = $(this).val();
                 updateMap(dataLayer, currentRound);
             });
         }
 
         function updateMap(dataLayer, currentRound) {
-            console.log(dataLayer);
+            // console.log(dataLayer);
             console.log(currentRound);
+            // ^These are console.logging twice each when I slide the slider, and I'm not sure why?
             dataLayer.eachLayer(function (layer) {
                 var props = layer.feature.properties;
                 var fieldNum = props.FIELD_NUM;
