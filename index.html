@@ -225,10 +225,6 @@
             createSliderUI(dataLayer);
             updateMap(dataLayer, '1');
             // slider update code goes here
-            $(".round-slider").on('input change', function () {
-                var currentRound = $(this).val();
-                updateMap(dataLayer, currentRound);
-            });
         }
 
         function updateMap(dataLayer, currentRound) {
@@ -250,6 +246,8 @@
                 var menLabel1 = fieldNum + ": " + mensFriday[0];
                 var menLabel2 = fieldNum + ": " + mensFriday[1];
                 // console.log(menLabel1);
+                // women's labels
+                var womenLabel1 = fieldNum + ": " + womensFriday[0];
                 if (currentRound = '1' & mensFriday[0] != null) {
                     layer.bindTooltip(menLabel1, {
                         className: "mensTooltip"
@@ -258,8 +256,33 @@
                         , opacity: 1
                     }).openTooltip();
                 }
+                else if (currentRound = '1' & womensFriday[0] != null) {
+                    layer.bindTooltip(womenLabel1, {
+                        className: "womensTooltip"
+                        , direction: "top"
+                        , permanent: true
+                        , opacity: 1
+                    }).openTooltip();
+                }
             });
         };
+
+        function createSliderUI(dataLayer) {
+            var sliderControl = L.control({
+                position: 'bottomleft'
+            });
+            sliderControl.onAdd = function (map) {
+                var slider = L.DomUtil.get("ui-controls");
+                L.DomEvent.disableScrollPropagation(slider);
+                L.DomEvent.disableClickPropagation(slider);
+                return slider;
+            }
+            sliderControl.addTo(map);
+            $(".round-slider").on('input change', function () {
+                var currentRound = $(this).val();
+                updateMap(dataLayer, currentRound);
+            });
+        }
 
         function addLabel(dataLayer) {
             dataLayer.eachLayer(function (layer) {
@@ -290,19 +313,6 @@
                     }).openTooltip();
                 }
             });
-        }
-
-        function createSliderUI(dataLayer) {
-            var sliderControl = L.control({
-                position: 'bottomleft'
-            });
-            sliderControl.onAdd = function (map) {
-                var slider = L.DomUtil.get("ui-controls");
-                L.DomEvent.disableScrollPropagation(slider);
-                L.DomEvent.disableClickPropagation(slider);
-                return slider;
-            }
-            sliderControl.addTo(map);
         }
     </script>
 </body>
