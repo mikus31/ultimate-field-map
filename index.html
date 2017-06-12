@@ -224,7 +224,6 @@
             // addLabel(dataLayer);
             createSliderUI(dataLayer);
             updateMap(dataLayer, "FRI", "1");
-            // slider update code goes here
         }
 
         function updateMap(dataLayer, day, currentRound) {
@@ -278,8 +277,7 @@
                 updateMap(dataLayer, currentDay, currentRound);
             });
         }
-
-        function addLabel(dataLayer) {
+        /*function addLabel(dataLayer) {
             dataLayer.eachLayer(function (layer) {
                 var props = layer.feature.properties;
                 // console.log(props);
@@ -308,7 +306,7 @@
                     }).openTooltip();
                 }
             });
-        }
+        }*/
     </script>
 </body>
 
