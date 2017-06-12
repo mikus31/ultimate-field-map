@@ -8,14 +8,14 @@
     <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
     <style>
         /* CSS style rules go here! */
-        
+
         #map {
             position: absolute;
             width: 100%;
             top: 0;
             bottom: 0;
         }
-        
+
         #infobox {
             position: absolute;
             z-index: 650;
@@ -30,7 +30,7 @@
             font-family: 'Slabo 27px', serif;
             width: 250px;
         }
-        
+
         #legend {
             position: absolute;
             z-index: 650;
@@ -44,7 +44,7 @@
             border-radius: 5px;
             width: 100px;
         }
-        
+
         h1 {
             position: absolute;
             z-index: 650;
@@ -58,7 +58,7 @@
             border-radius: 5px;
             font-family: 'Slabo 27px', serif;
         }
-        
+
         h2 {
             position: absolute;
             z-index: 650;
@@ -72,11 +72,11 @@
             border-radius: 5px;
             font-family: 'Slabo 27px', serif;
         }
-        
+
         a {
             color: deepskyblue;
         }
-        
+
         .mensTooltip {
             color: whitesmoke;
             background: #6050dc;
@@ -84,7 +84,7 @@
             font-weight: bold;
             font-family: 'Slabo 27px', serif;
         }
-        
+
         .womensTooltip {
             background: #f5deb3;
             color: black;
@@ -92,7 +92,7 @@
             font-weight: bold;
             font-family: 'Slabo 27px', serif;
         }
-        
+
         #radio-button {
             position: absolute;
             z-index: 650;
@@ -106,7 +106,7 @@
             font-family: 'Slabo 27px', serif;
             font-size: .9em;
         }
-        
+
         #ui-controls {
             position: absolute;
             z-index: 650;
@@ -118,35 +118,35 @@
             bottom: 25px;
             left: 10px;
         }
-        
+
         #ui-controls .min {
             float: left;
         }
-        
+
         #ui-controls .second {
             float: left;
             margin-left: 25px;
         }
-        
+
         #ui-controls .mid {
             float: left;
             margin-left: 30px;
         }
-        
+
         #ui-controls .fourth {
             float: left;
             margin-left: 35px;
         }
-        
+
         #ui-controls .max {
             float: right;
             margin-right: -15px;
         }
-        
+
         .round-slider {
             width: 100%;
         }
-        
+
         label {
             font-size: 1em;
             font-weight: bold;
@@ -173,9 +173,9 @@
     <div id="radio-button">
         <label>Select Day:</label>
         <br>
-        <input type="radio" name="day" value="Friday" checked>Friday May 26
+        <input type="radio" name="day" value="FRI" checked>Friday May 26
         <br>
-        <input type="radio" name="day" value="Saturday">Saturday May 27
+        <input type="radio" name="day" value="SAT">Saturday May 27
         <br>
         <input type="submit"> </div>
     <div id="ui-controls">
@@ -223,31 +223,42 @@
             map.fitBounds(dataLayer.getBounds());
             // addLabel(dataLayer);
             createSliderUI(dataLayer);
-            updateMap(dataLayer, '1');
+            updateMap(dataLayer, "FRI", "1");
             // slider update code goes here
         }
 
-        function updateMap(dataLayer, currentRound) {
-            // console.log(currentRound);
-            // ^This is console.logging twice when I slide the slider and stop on a number, and I'm not sure why? If I slide past a number it only console.logs the passed number once though. I'm not quite sure what's going on here!
+        function updateMap(dataLayer, day, currentRound) {
+
+            // loop through layers
             dataLayer.eachLayer(function (layer) {
-                var props = layer.feature.properties;
-                var fieldNum = props.FIELD_NUM;
-                var mensFriday = []
-                    , womensFriday = [];
-                for (var i = 0; i < 1; i++) {
-                    // code goes here
-                    mensFriday.push(props.FRI_M1, props.FRI_M2, props.FRI_M3, props.FRI_M4, props.FRI_M5);
-                    womensFriday.push(props.FRI_W1, props.FRI_W2, props.FRI_W3, props.FRI_W4, props.FRI_W5);
-                }
-                // console.log(mensFriday);
-                console.log(mensFriday[0]);
-                var menLabel1 = fieldNum + ": " + mensFriday[0];
-                // console.log(menLabel1);
-                // women's labels
-                if ((currentRound = '1') & (mensFriday[0] != null)) {
-                    layer.bindTooltip(menLabel1, {
+
+                // reference values
+                var props = layer.feature.properties,
+                    fieldNum = props.FIELD_NUM,
+                    currentMensGame = props[day + "_M" + currentRound],
+                    menLabel = fieldNum + ": " + currentMensGame,
+                    currentWomensGame = props[day + "_W" + currentRound],
+                    womenLabel = fieldNum + ": " + currentWomensGame;
+
+                // remove any previously bound tooltip
+                layer.unbindTooltip();
+
+                // if it's true there is a men's game
+                if (currentMensGame) {
+                    // bind the tooltip
+                    layer.bindTooltip(menLabel, {
                         className: "mensTooltip"
+                        , direction: "top"
+                        , permanent: true
+                        , opacity: 1
+                    }).openTooltip();
+                }
+                
+                // if it's true there is a women's game
+                if (currentWomensGame) {
+                    // bind the tooltip
+                    layer.bindTooltip(womenLabel, {
+                        className: "womensTooltip"
                         , direction: "top"
                         , permanent: true
                         , opacity: 1
@@ -268,8 +279,9 @@
             }
             sliderControl.addTo(map);
             $(".round-slider").on('input change', function () {
-                var currentRound = $(this).val();
-                updateMap(dataLayer, currentRound);
+                var currentRound = $(this).val(),
+                    currentDay = $("input[name='day']:checked").val();  // will be FRI or SAT
+                updateMap(dataLayer, currentDay, currentRound);
             });
         }
 
