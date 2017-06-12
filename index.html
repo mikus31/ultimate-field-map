@@ -173,9 +173,9 @@
     <div id="radio-button">
         <label>Select Day:</label>
         <br>
-        <input type="radio" name="day" value="Friday" checked>Friday May 26
+        <input type="radio" name="day" value="FRI" checked>Friday May 26
         <br>
-        <input type="radio" name="day" value="Saturday">Saturday May 27
+        <input type="radio" name="day" value="SAT">Saturday May 27
         <br>
         <input type="submit"> </div>
     <div id="ui-controls">
@@ -223,11 +223,11 @@
             map.fitBounds(dataLayer.getBounds());
             // addLabel(dataLayer);
             createSliderUI(dataLayer);
-            updateMap(dataLayer, '1');
+            updateMap(dataLayer, "FRI", "1");
             // slider update code goes here
         }
 
-        function updateMap(dataLayer, currentRound) {
+        function updateMap(dataLayer, day, currentRound) {
             console.log(currentRound);
             // ^This is duplicating the currentRound value (two 2s, two 3s, etc.) when I slide the slider and stop on a number, and I'm not sure why? If I slide past a number it only console.logs the passed number once. But when you stop the slider, it console logs this val twice. I'm not quite sure what's going on here!
             dataLayer.eachLayer(function (layer) {
