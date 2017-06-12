@@ -228,26 +228,31 @@
         }
 
         function updateMap(dataLayer, day, currentRound) {
-            console.log(currentRound);
-            // ^This is duplicating the currentRound value (two 2s, two 3s, etc.) when I slide the slider and stop on a number, and I'm not sure why? If I slide past a number it only console.logs the passed number once. But when you stop the slider, it console logs this val twice. I'm not quite sure what's going on here!
+            // loop through layers
+            // console.log(currentRound);
             dataLayer.eachLayer(function (layer) {
-                var props = layer.feature.properties;
-                var fieldNum = props.FIELD_NUM;
-                var mensFriday = []
-                    , womensFriday = [];
-                for (var i = 0; i < 1; i++) {
-                    // code goes here
-                    mensFriday.push(props.FRI_M1, props.FRI_M2, props.FRI_M3, props.FRI_M4, props.FRI_M5);
-                    womensFriday.push(props.FRI_W1, props.FRI_W2, props.FRI_W3, props.FRI_W4, props.FRI_W5);
-                }
-                // console.log(mensFriday);
-                // console.log(mensFriday[0]);
-                var menLabel1 = fieldNum + ": " + mensFriday[0];
-                // console.log(menLabel1);
-                // women's labels
-                if ((currentRound = '1') & (mensFriday[0] != null)) {
-                    layer.bindTooltip(menLabel1, {
+                // reference values
+                var props = layer.feature.properties
+                    , fieldNum = props.FIELD_NUM
+                    , currentMensGame = props[day + "_M" + currentRound]
+                    , menLabel = fieldNum + ": " + currentMensGame
+                    , currentWomensGame = props[day + "_W" + currentRound]
+                    , womenLabel = fieldNum + ": " + currentWomensGame; // remove any previously bound tooltip
+                layer.unbindTooltip(); // if it's true there is a men's game
+                if (currentMensGame) {
+                    // bind the tooltip
+                    layer.bindTooltip(menLabel, {
                         className: "mensTooltip"
+                        , direction: "top"
+                        , permanent: true
+                        , opacity: 1
+                    }).openTooltip();
+                }
+                // if it's true there is a women's game
+                if (currentWomensGame) {
+                    // bind the tooltip
+                    layer.bindTooltip(womenLabel, {
+                        className: "womensTooltip"
                         , direction: "top"
                         , permanent: true
                         , opacity: 1
@@ -268,8 +273,9 @@
             }
             sliderControl.addTo(map);
             $(".round-slider").on('input change', function () {
-                var currentRound = $(this).val();
-                updateMap(dataLayer, currentRound);
+                var currentRound = $(this).val()
+                    , currentDay = $("input[name='day']:checked").val(); // will be FRI or SAT
+                updateMap(dataLayer, currentDay, currentRound);
             });
         }
 
