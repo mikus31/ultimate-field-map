@@ -221,7 +221,7 @@
                 }
             }).addTo(map);
             map.fitBounds(dataLayer.getBounds());
-            addLabel(dataLayer);
+            // addLabel(dataLayer);
             createSliderUI(dataLayer);
             updateMap(dataLayer, '1');
             // slider update code goes here
@@ -232,18 +232,32 @@
         }
 
         function updateMap(dataLayer, currentRound) {
-            // console.log(currentRound);
+            console.log(currentRound);
             // ^This is console.logging twice when I slide the slider and stop on a number, and I'm not sure why? If I slide past a number it only console.logs the passed number once though. I'm not quite sure what's going on here!
             dataLayer.eachLayer(function (layer) {
                 var props = layer.feature.properties;
+                var fieldNum = props.FIELD_NUM;
                 var mensFriday = []
                     , womensFriday = [];
                 for (var i = 0; i < 1; i++) {
                     // code goes here
-                    mensFriday.push(props);
-                    // womensFriday.push;
+                    mensFriday.push(props.FRI_M1, props.FRI_M2, props.FRI_M3, props.FRI_M4, props.FRI_M5);
+                    womensFriday.push(props.FRI_W1, props.FRI_W2, props.FRI_W3, props.FRI_W4, props.FRI_W5);
                 }
-                console.log(mensFriday);
+                // console.log(mensFriday);
+                // console.log(mensFriday[1]);
+                var fieldNum = props.FIELD_NUM;
+                var menLabel1 = fieldNum + ": " + mensFriday[0];
+                var menLabel2 = fieldNum + ": " + mensFriday[1];
+                // console.log(menLabel1);
+                if (currentRound = '1' & mensFriday[0] != null) {
+                    layer.bindTooltip(menLabel1, {
+                        className: "mensTooltip"
+                        , direction: "top"
+                        , permanent: true
+                        , opacity: 1
+                    }).openTooltip();
+                }
             });
         };
 
