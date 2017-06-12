@@ -228,7 +228,7 @@
         }
 
         function updateMap(dataLayer, currentRound) {
-            // console.log(currentRound);
+            console.log(currentRound);
             // ^This is console.logging twice when I slide the slider and stop on a number, and I'm not sure why? If I slide past a number it only console.logs the passed number once though. I'm not quite sure what's going on here!
             dataLayer.eachLayer(function (layer) {
                 var props = layer.feature.properties;
@@ -241,7 +241,7 @@
                     womensFriday.push(props.FRI_W1, props.FRI_W2, props.FRI_W3, props.FRI_W4, props.FRI_W5);
                 }
                 // console.log(mensFriday);
-                console.log(mensFriday[0]);
+                // console.log(mensFriday[0]);
                 var menLabel1 = fieldNum + ": " + mensFriday[0];
                 // console.log(menLabel1);
                 // women's labels
