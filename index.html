@@ -229,7 +229,7 @@
 
         function updateMap(dataLayer, currentRound) {
             console.log(currentRound);
-            // ^This is console.logging twice when I slide the slider and stop on a number, and I'm not sure why? If I slide past a number it only console.logs the passed number once though. I'm not quite sure what's going on here!
+            // ^This is duplicating the currentRound value (two 2s, two 3s, etc.) when I slide the slider and stop on a number, and I'm not sure why? If I slide past a number it only console.logs the passed number once. But when you stop the slider, it console logs this val twice. I'm not quite sure what's going on here!
             dataLayer.eachLayer(function (layer) {
                 var props = layer.feature.properties;
                 var fieldNum = props.FIELD_NUM;
