@@ -277,8 +277,11 @@
                 updateMap(dataLayer, currentDay, currentRound);
             });
             $("#radio-button").on('input change', function () {
+                // reset currentRound value to 1 so that the slider resets itself to first round position when user changes day
                 var currentRound = $(".round-slider").val("1");
+                // reset currentDay to selected day
                 var currentDay = $("input[name='day']:checked").val();
+                // send currentDay selection to updateMap and send currentRound = 1 to updateMap
                 updateMap(dataLayer, currentDay, "1");
             });
         }
