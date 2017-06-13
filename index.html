@@ -277,9 +277,9 @@
                 updateMap(dataLayer, currentDay, currentRound);
             });
             $("#radio-button").on('input change', function () {
-                var currentRound = "1";
+                var currentRound = $(".round-slider").val("1");
                 var currentDay = $("input[name='day']:checked").val();
-                updateMap(dataLayer, currentDay, currentRound);
+                updateMap(dataLayer, currentDay, "1");
                 // resetSlider("1");
             });
         }
