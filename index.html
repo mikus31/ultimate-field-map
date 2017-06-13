@@ -234,8 +234,10 @@
                     , currentMensGame = props[day + "_M" + currentRound]
                     , menLabel = fieldNum + ": " + currentMensGame
                     , currentWomensGame = props[day + "_W" + currentRound]
-                    , womenLabel = fieldNum + ": " + currentWomensGame; // remove any previously bound tooltip
-                layer.unbindTooltip(); // if it's true there is a men's game
+                    , womenLabel = fieldNum + ": " + currentWomensGame;
+                // remove any previously bound tooltip
+                layer.unbindTooltip();
+                // if it's true there is a men's game
                 if (currentMensGame) {
                     // bind the tooltip
                     layer.bindTooltip(menLabel, {
@@ -272,6 +274,10 @@
             $(".round-slider").on('input change', function () {
                 var currentRound = $(this).val()
                     , currentDay = $("input[name='day']:checked").val(); // will be FRI or SAT
+                updateMap(dataLayer, currentDay, currentRound);
+            });
+            $("#radio-button").on('input change', function (currentDay, currentRound) {
+                // map.fire(???);
                 updateMap(dataLayer, currentDay, currentRound);
             });
         }
