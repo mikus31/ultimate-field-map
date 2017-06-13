@@ -282,36 +282,6 @@
                 updateMap(dataLayer, currentDay, "1");
             });
         }
-        /*function addLabel(dataLayer) {
-            dataLayer.eachLayer(function (layer) {
-                var props = layer.feature.properties;
-                // console.log(props);
-                // console.log(props.FIELD_NUM);
-                var fieldNum = props.FIELD_NUM;
-                var mensDiv = props.FRI_M1;
-                var womensDiv = props.FRI_W1;
-                var fieldLabelM = fieldNum + ": " + mensDiv;
-                var fieldLabelW = fieldNum + ": " + womensDiv;
-                if (mensDiv != null) {
-                    // console.log(mensDiv);
-                    layer.bindTooltip(fieldLabelM, {
-                        className: "mensTooltip"
-                        , direction: "top"
-                        , permanent: true
-                        , opacity: 1
-                    }).openTooltip();
-                }
-                else if (womensDiv != null) {
-                    // console.log(womensDiv);
-                    layer.bindTooltip(fieldLabelW, {
-                        className: "womensTooltip"
-                        , direction: "top"
-                        , permanent: true
-                        , opacity: 1
-                    }).openTooltip();
-                }
-            });
-        }*/
     </script>
 </body>
 
