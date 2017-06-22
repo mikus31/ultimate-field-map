@@ -35,7 +35,20 @@
         }).addTo(map);
         map.fitBounds(dataLayer.getBounds());
         createSliderUI(dataLayer);
+        fieldLabels(dataLayer);
         updateMap(dataLayer, "FRI", "1");
+    }
+
+    function fieldLabels(dataLayer) {
+        // script goes here
+        dataLayer.eachLayer(function (layer) {
+            var props = layer.feature.properties
+                , fieldNum = props.FIELD_NUM;
+            // console.log(fieldNum);
+            layer.bindTooltip(fieldNum, {
+                permanent: true
+            }).openTooltip();
+        });
     }
 
     function updateMap(dataLayer, day, currentRound) {
