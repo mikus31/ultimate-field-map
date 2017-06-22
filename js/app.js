@@ -29,6 +29,7 @@
                     , weight: 3
                     , fillOpacity: .5
                     , fillColor: '#3FBF3F'
+                    , interactive: false
                 };
             }
         }).addTo(map);
