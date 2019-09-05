@@ -11,7 +11,7 @@
         , maxBounds: L.latLngBounds(southWest, northEast)
     }
     var map = L.map('map', options);
-    var tiles = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWlrdXMzMSIsImEiOiJjajJqMTE5dWkwMXQyMndtcm00cXI1c3d1In0.i1zdIav3mjcxFiXk91NIPQ', {
+    var tiles = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWlrdXMzMSIsImEiOiJjanVrNGgyaTIxcDNpM3lwaXB3dnowa2VpIn0.uNKvtTY9Is0M7xKSl_ukjQ', {
         attribution: '&copy; <a href="https://www.mapbox.com/about/maps/">Mapbox</a> | &copy; <a href="https://www.digitalglobe.com/">Digital Globe</a> | <a href="https://www.mapbox.com/feedback/">Improve this map</a>'
     }).addTo(map);
     $.getJSON("data/field-map-wgs.geojson", function (data) {
